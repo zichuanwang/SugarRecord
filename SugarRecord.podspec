@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SugarRecord'
-  s.version = '1.0.7'
+  s.version = ‘1.0.8’
   s.platform = :ios, '7.0'
   s.license = 'MIT'
   s.summary = 'CoreData management library implemented with the sugar Swift language'
