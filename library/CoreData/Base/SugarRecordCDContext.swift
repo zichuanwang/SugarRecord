@@ -31,7 +31,7 @@ public class SugarRecordCDContext: SugarRecordContext
     */
     public func beginWriting()
     {
-       // CD begin writing does nothing
+        // CD begin writing does nothing
     }
     
     /**
@@ -118,7 +118,7 @@ public class SugarRecordCDContext: SugarRecordContext
         case .last:
             if !sortDescriptors.isEmpty{
                 sortDescriptors[0] = NSSortDescriptor(key: sortDescriptors.first!.key!, ascending: !(sortDescriptors.first!.ascending))
-             }
+            }
             fetchRequest.fetchLimit = 1
         case .firsts(let number):
             fetchRequest.fetchLimit = number
@@ -210,5 +210,13 @@ public class SugarRecordCDContext: SugarRecordContext
         else {
             return objectInContext
         }
+    }
+    
+    public func performBlock(block: () -> Void) {
+        self.contextCD.performBlock(block)
+    }
+    
+    public func performBlockAndWait(block: () -> Void) {
+        self.contextCD.performBlockAndWait(block)
     }
 }
