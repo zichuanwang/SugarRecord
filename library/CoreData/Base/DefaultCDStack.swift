@@ -279,7 +279,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         }
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
-        context!.addObserverToGetPermanentIDsBeforeSaving()
+        context!.undoManager = nil
         if context!.respondsToSelector(Selector("name")) {
             context!.name = "Main context"
         }
@@ -302,7 +302,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
         context!.mergePolicy = NSOverwriteMergePolicy
-        context!.addObserverToGetPermanentIDsBeforeSaving()
+        context!.undoManager = nil
         if context!.respondsToSelector(Selector("name")) {
             context!.name = "Private context"
         }
